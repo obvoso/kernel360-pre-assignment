@@ -5,8 +5,6 @@
     "target": "ES2020",
     "jsx": "react",
     "allowImportingTsExtensions": true,
-    "strictNullChecks": false,
-    "checkJs": true,
     "baseUrl": "src",
     "paths": {
       "@/*": ["*"]
