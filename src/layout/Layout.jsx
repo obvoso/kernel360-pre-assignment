@@ -1,13 +1,19 @@
 import React from 'react'
-import Navbar from './Sidebar/Navbar'
+import SideNavbar from './SideNavbar/SideNavbar'
 import Header from './Header/Header'
 import { Outlet } from 'react-router-dom'
-import { LayoutContainer, ContentContainer } from './Layout.styled'
+import {
+  LayoutContainer,
+  SideNavbarContainer,
+  ContentContainer,
+} from './Layout.styled'
 
 export default function Layout() {
   return (
     <LayoutContainer>
-      <Navbar />
+      <SideNavbarContainer>
+        <SideNavbar />
+      </SideNavbarContainer>
       <ContentContainer>
         <Header />
         <Outlet />

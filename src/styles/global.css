@@ -2,4 +2,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow-x: unset;
+  overflow-y: scroll;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: #f5f5f6;
 }
