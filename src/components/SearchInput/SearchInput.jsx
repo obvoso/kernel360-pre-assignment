@@ -11,7 +11,7 @@ export default function SearchInput() {
         <Search />
       </CursorPointerWrapper>
       <Gap $horizontalGap="0.5rem" />
-      <SearchInputField />
+      <SearchInputField placeholder="Search" />
     </SearchInputContainer>
   )
 }

@@ -9,11 +9,13 @@ export const SearchInputContainer = styled.div`
   border: 1px solid ${({ theme }) => theme.color.border};
   width: 400px;
   height: 50px;
+  background: ${({ theme }) => theme.color.backgroundSecondary};
 `
 
 export const SearchInputField = styled.input`
   background-color: transparent;
   border: none;
+  width: 100%;
   color: ${({ theme }) => theme.color.text};
   font-size: ${({ theme }) => theme.fontSize.base};
   outline: none;

@@ -27,6 +27,7 @@ const color = {
   success: '#87B6A1',
   reject: '#DB79A9',
   border: 'rgba(0, 0, 0, 0.46)',
+  borderSecondary: '#E3E3E3',
 }
 
 export const theme = {
