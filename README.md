@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# 프로젝트 구조 및 컴포넌트 설계
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📁 폴더 구조
+```
+src/
+├── components/       # 재사용 가능한 UI 컴포넌트
+├── data/             # json 데이터 파일 및 정적 데이터
+├── features/order/   # 특정 기능의 기능별 컴포넌트
+├── layout/           # 전체 레이아웃 관련 컴포넌트
+├── pages/            # 페이지별 컴포넌트 (라우팅)
+├── styles/           # 전역 스타일
+├── utils/            # 유틸리티 함수
+└── index.js          # 진입점 파일
+```
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🧩 컴포넌트 구조 요약
+1. **`components`**  
+   - 재사용 가능한 UI 컴포넌트를 모아둔 디렉토리입니다. 버튼과 같은 컴포넌트들이 포함되어있습니다.
 
-### `yarn start`
+2. **`features/order`**  
+   - 특정 기능을 담당하는 컴포넌트입니다.  
+     주문과 관련된 컴포넌트들이 포함되어 있습니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+3. **`layout`**  
+   - 전체 페이지 레이아웃을 담당하는 컴포넌트입니다.  
+     공통 Header와 Sidebar가 포함된 Layout이 페이지(outlet)를 감쌉니다.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+4. **`pages`**  
+   - 각 페이지별 라우팅과 렌더링을 담당하는 컴포넌트입니다.
 
-### `yarn test`
+5. **`styles`**  
+   - global.css와 theme가 포함되어있습니다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+6. **`utils`**  
+   - 프로젝트에서 사용되는 공통 유틸리티 함수를 모아둡니다.
 
-### `yarn build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠️ 설계 의도
+- **재사용성**: UI 컴포넌트는 독립적이고 범용적으로 사용될 수 있도록 설계하려 했습니다.
+- **기능별 분리**: `features/order`와 같이 특정 기능별로 폴더를 나누어 유지보수가 용이하도록 설계했습니다.
+- **확장성**: 새로운 기능이나 페이지를 추가할 때 폴더 구조를 유지하며 쉽게 확장할 수 있습니다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🔄 재사용성 평가
+ **남이 만든 컴포넌트라고 가정했을 때 가져다 쓰기에 편리한가?**  
+   - 어려울 거 같습니다. 어려울 거 같아 jsDoc을 사용하여 주석을 포함했습니다.
+   - 피그마에 제시된 컴포넌트 이외의 다른 컴포넌트를 만들어야 했을 때, 기존 컴포넌트의 변경 없이 가져다 쓸 수 있을지 모르겠습니다.
 
-### `yarn eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🤔 컴포넌트를 설계하면서 어려웠던 점
+- **범용적인 컴포넌트 설계**:  
+   사이드의 네비게이션바와 오더리스트의 카드 하단의 버튼의 UI가 비슷한 거 같았습니다.
+   ButtonBase 컴포넌트를 만들어 두 곳에서 사용하려 했지만 어려웠습니다.
+  
+   두 버튼을 따로 만든 후 합칠 수 있을 거 같은 인자와 스타일을 뽑아 ButtonBase 컴포넌트를 만들었습니다.
+   해당 컴포넌트는 아마 저 두 곳 이외에서 사용하기 어려울 수도 있을 거 같습니다.
+   처음부터 재사용 가능한 컴포넌트를 만들지 못한 점과 억지로 만든 공통 컴포넌트 느낌을 지우기 어려웠습니다.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **컴포넌트 분리 기준**:  
+   컴포넌트를 기능 단위로 적절히 나누는 것이 어려웠습니다. 너무 잘게 쪼갠 거 같기도 합니다.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
